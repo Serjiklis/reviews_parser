@@ -32,4 +32,19 @@ class ReviewSpec extends ObjectBehavior
         $wordArray = $this->parseWords("Hello everyone here");
         $wordArray[0]->text->shouldBe("Hello");
     }
+
+    function is_hotel_features()
+    {
+
+    }
+
+    function is_adjectives()
+    {
+
+    }
+
+    function is_modifiers()
+    {
+
+    }
 }
