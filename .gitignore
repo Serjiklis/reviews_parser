@@ -1,1 +1,13 @@
-/vendor/*
+.idea/
+.vscode/
+/coverage/
+/vendor/
+/logs/*
+!/logs/README.md
+.phpunit.result.cache
+/cache/*
+data/userSearches.json
+tests/data/behat/userSearches.json
+tests/data/behat/userPreferences.json
+data/userSearches.json
+/bin/var-dump-server

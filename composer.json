@@ -8,8 +8,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Milescook\\ReviewsParser\\": "src/"
+            "\\": "src/"
         }
+    },
+    "config": {
+        "process-timeout": 0,
+        "sort-packages": true,
+        "bin-dir": "bin"
     },
     "authors": [
         {
