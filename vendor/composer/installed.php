@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'a9a6ddfff915ecffabca9ac883ddd462a6276ff4',
+        'reference' => '04f0eba9845a26e1a00328ed319cb9a025efb161',
         'name' => 'milescook/reviews_parser',
         'dev' => true,
     ),
@@ -25,7 +25,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'a9a6ddfff915ecffabca9ac883ddd462a6276ff4',
+            'reference' => '04f0eba9845a26e1a00328ed319cb9a025efb161',
             'dev_requirement' => false,
         ),
         'phpdocumentor/reflection-common' => array(

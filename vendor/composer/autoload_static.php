@@ -19,10 +19,6 @@ class ComposerStaticInitfed1de3f5aa05edcca9cbe42ef4cca95
         array (
             'phpDocumentor\\Reflection\\' => 25,
         ),
-        '\\' => 
-        array (
-            '\\' => 1,
-        ),
         'W' => 
         array (
             'Webmozart\\Assert\\' => 17,
@@ -52,6 +48,10 @@ class ComposerStaticInitfed1de3f5aa05edcca9cbe42ef4cca95
         array (
             'Doctrine\\Instantiator\\' => 22,
         ),
+        'A' => 
+        array (
+            'App\\' => 4,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -60,10 +60,6 @@ class ComposerStaticInitfed1de3f5aa05edcca9cbe42ef4cca95
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
             1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
-        ),
-        '\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src',
         ),
         'Webmozart\\Assert\\' => 
         array (
@@ -132,6 +128,10 @@ class ComposerStaticInitfed1de3f5aa05edcca9cbe42ef4cca95
         'Doctrine\\Instantiator\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator',
+        ),
+        'App\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
         ),
     );
 
