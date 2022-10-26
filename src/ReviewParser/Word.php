@@ -2,6 +2,8 @@
 
 namespace App\ReviewParser;
 
+use App\HotelAdjectives\Adjectives;
+use App\HotelMdifiers\Modifiers;
 use phpDocumentor\Reflection\Types\String_;
 use App\HotelFeature\Feature;
 
@@ -13,13 +15,10 @@ class Word
 
     /** @var bool $isHotelFeature */
     var $isHotelFeature;
-    
-    var $checkForAdjectives =
-        [
-            "amazing",
-            "poor",
-            "helpful"
-        ];
+
+    /**
+     * @var string[]
+     */
     var $modifiers =
         [
             "no",
@@ -43,12 +42,8 @@ class Word
 
         $feature = new Feature();
 
-        foreach ($feature->featureWords() as $word)
-        {
-            if($word == $text)
-            {
-                return true;
-            }
+        if (in_array($text, $feature->featureWords())) {
+            return true;
         }
         return false;
     }
@@ -56,12 +51,11 @@ class Word
     public function checkForAdjective(string $text): bool
     {
         $text =  strtolower($text);
-        foreach ($this->checkForAdjectives as $adjective)
-        {
-            if($adjective == $text)
-            {
-                return true;
-            }
+
+        $adjectives = new Adjectives();
+
+        if (in_array($text, $adjectives->adjectivesWords())) {
+            return true;
         }
         return false;
     }
@@ -69,12 +63,11 @@ class Word
     public function checkForModifier(string $text): bool
     {
         $text =  strtolower($text);
-        foreach ($this->modifiers as $modifier)
-        {
-            if($modifier == $text)
-            {
-                return true;
-            }
+
+        $modifier = new Modifiers();
+
+        if (in_array($text, $modifier->modifierWords())) {
+            return true;
         }
         return false;
     }

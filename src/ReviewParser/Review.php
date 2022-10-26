@@ -15,6 +15,9 @@ class Review
         $this->wordArray = $this->parseWords($reviewText);
     }
 
+    /**
+     * @return int
+     */
     public function wordCount()
     {
         return count($this->wordArray);
