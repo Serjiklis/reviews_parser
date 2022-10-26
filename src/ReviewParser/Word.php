@@ -13,16 +13,7 @@ class Word
 
     /** @var bool $isHotelFeature */
     var $isHotelFeature;
-    /*
-    var $featureWords =
-    [
-        "spa",
-        "staff",
-        "pet-friendly",
-        "fitness centre",
-        "pool"
-    ];
-    */
+    
     var $checkForAdjectives =
         [
             "amazing",
@@ -45,24 +36,6 @@ class Word
     }
 
 
-
-    /*
-    function checkForHotelFeature(string $text) : bool
-    {
-
-        $text =  strtolower($text);
-        foreach ($this->featureWords as $word)
-        {
-            if($word == $text)
-            {
-                return true;
-            }
-        }
-
-        return false;
-
-    }
-    */
 
     function checkForHotelFeature(string $text) : bool
     {
