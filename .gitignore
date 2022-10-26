@@ -11,3 +11,4 @@ tests/data/behat/userSearches.json
 tests/data/behat/userPreferences.json
 data/userSearches.json
 /bin/var-dump-server
+/bin/
