@@ -25,9 +25,19 @@ class WordSpec extends ObjectBehavior
     function it_detects_hotel_features()
     {
         $this->checkForHotelFeature("Spa")->shouldReturn(true);
-        //$this->checkForHotelFeature("spa")->shouldReturn(true);
-        //$this->checkForHotelFeature("amazing")->shouldReturn(false);
-        //$this->checkForHotelFeature("staff")->shouldReturn(true);
+        $this->checkForHotelFeature("spa")->shouldReturn(true);
+        $this->checkForHotelFeature("amazing")->shouldReturn(false);
+        $this->checkForHotelFeature("staff")->shouldReturn(true);
+    }
+
+    function it_detects_adjectives()
+    {
+        $this->checkForAdjective("amazing")->shouldReturn(true);
+    }
+
+    function it_detects_modifiers()
+    {
+        $this->checkForModifier("not")->shouldReturn(true);
     }
 
 }
