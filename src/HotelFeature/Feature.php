@@ -4,7 +4,11 @@ namespace App\HotelFeature;
 
 class Feature
 {
-    function featureWords()
+
+    /**
+     * @return string[]
+     */
+    function featureWords(): array
     {
         return [
             "spa",
