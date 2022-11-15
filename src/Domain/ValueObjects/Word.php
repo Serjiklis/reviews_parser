@@ -2,6 +2,8 @@
 
 namespace App\Domain\ValueObjects;
 
+use App\Infrastructure\WordsRepository\IWordsRepository;
+
 class Word
 {
 
@@ -11,20 +13,21 @@ class Word
     /** @var bool $isHotelFeature */
     var $isHotelFeature;
 
-    /**
-     * @var string[]
-     */
-    var $modifiers =
-        [
-            "no",
-            "not"
-        ];
+    /** @var bool $isAdjective */
+    var $isAdjective;
+
+    /** @var bool $isModifier */
+    var $isModifier;
+
+    /** @var IWordsRepository $WordsRepository */
+    var $WordsRepository;
 
     /**
      * @param string $text
      */
-    public function __construct(string $text)
+    public function __construct(string $text, IWordsRepository $WordsRepository=null)
     {
+        $this->WordsRepository = $WordsRepository;
         $this->text = $text;
         $this->isHotelFeature = $this->checkForHotelFeature($text);
     }

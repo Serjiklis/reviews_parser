@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Infrastructure\WordsRepository;
+
 use App\Domain\ValueObjects\Word;
 
 interface IWordsRepository
