@@ -40,4 +40,12 @@ class Review
 
         return $WordArray;
     }
+
+    /**
+     * @return array<mixed>
+     */
+    public function getReviewResults() : array
+    {
+        return (array) $this;
+    }
 }
