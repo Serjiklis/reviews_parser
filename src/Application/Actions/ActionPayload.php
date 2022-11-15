@@ -90,7 +90,9 @@ class ActionPayload implements JsonSerializable
 
     /**
      * @return mixed
+     *
      */
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $payload = [

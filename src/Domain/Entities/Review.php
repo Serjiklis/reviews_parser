@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Domain\ReviewParser;
+namespace App\Domain\Entities;
+
+use App\Domain\ReviewParser\Word;
 
 class Review
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\App\Domain\ReviewParser;
+namespace spec\App\Domain\Entities;
 
-use App\Domain\ReviewParser\Review;
+use App\Domain\Entities\Review;
 use PhpSpec\ObjectBehavior;
 
 class ReviewSpec extends ObjectBehavior
