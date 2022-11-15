@@ -2,7 +2,7 @@
 
 namespace App\Domain\Entities;
 
-use App\Domain\ReviewParser\Word;
+use App\Domain\ValueObjects\Word;
 
 class Review
 {

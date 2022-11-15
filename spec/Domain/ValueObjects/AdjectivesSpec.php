@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\App\Domain\HotelAdjectives;
+namespace spec\App\Domain\ValueObjects;
 
-use App\Domain\HotelAdjectives\Adjectives;
+use App\Domain\ValueObjects\Adjectives;
 use PhpSpec\ObjectBehavior;
 
 class AdjectivesSpec extends ObjectBehavior

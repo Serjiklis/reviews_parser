@@ -1,11 +1,6 @@
 <?php
 
-namespace App\Domain\ReviewParser;
-
-use App\Domain\HotelAdjectives\Adjectives;
-use App\Domain\HotelMdifiers\Modifiers;
-use phpDocumentor\Reflection\Types\String_;
-use App\Domain\HotelFeature\Feature;
+namespace App\Domain\ValueObjects;
 
 class Word
 {

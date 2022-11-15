@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\App\Domain\ReviewParser;
+namespace spec\App\Domain\ValueObjects;
 
-use App\Domain\ReviewParser\Word;
+use App\Domain\ValueObjects\Word;
 use PhpSpec\ObjectBehavior;
 
 class WordSpec extends ObjectBehavior

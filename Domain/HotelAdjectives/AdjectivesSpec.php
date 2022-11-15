@@ -2,7 +2,7 @@
 
 namespace spec\App\Domain\HotelAdjectives;
 
-use App\Domain\HotelAdjectives\Adjectives;
+use App\Domain\ValueObjects\Adjectives;
 use PhpSpec\ObjectBehavior;
 
 class AdjectivesSpec extends ObjectBehavior

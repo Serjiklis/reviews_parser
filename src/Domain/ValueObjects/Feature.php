@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\HotelFeature;
+namespace App\Domain\ValueObjects;
 
 class Feature
 {
