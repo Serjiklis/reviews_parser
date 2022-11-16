@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Domain\HotelMdifiers;
+namespace App\Domain\ValueObjects;
 
-class Modifiers
+class Modifiers implements IList
 {
 
     /**

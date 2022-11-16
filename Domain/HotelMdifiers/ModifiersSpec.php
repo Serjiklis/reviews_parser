@@ -2,7 +2,7 @@
 
 namespace spec\App\Domain\HotelMdifiers;
 
-use App\Domain\HotelMdifiers\Modifiers;
+use App\Domain\ValueObjects\Modifiers;
 use PhpSpec\ObjectBehavior;
 
 class ModifiersSpec extends ObjectBehavior

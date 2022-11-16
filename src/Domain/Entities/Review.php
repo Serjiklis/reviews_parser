@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Domain\ReviewParser;
+namespace App\Domain\Entities;
+
+use App\Domain\ValueObjects\Word;
 
 class Review
 {
@@ -30,12 +32,20 @@ class Review
     public function parseWords(string $reviewText) : array
     {
         $WordArray = [];
-        foreach (explode(" ",$reviewText) as $text)
+        foreach (explode(" ", $reviewText) as $text)
         {
             $Word = new Word($text);
             $WordArray[] = $Word;
         }
 
         return $WordArray;
+    }
+
+    /**
+     * @return array<mixed>
+     */
+    public function getReviewResults() : array
+    {
+        return (array) $this;
     }
 }

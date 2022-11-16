@@ -1,11 +1,8 @@
 <?php
 
-namespace App\Domain\ReviewParser;
+namespace App\Domain\ValueObjects;
 
-use App\Domain\HotelAdjectives\Adjectives;
-use App\Domain\HotelMdifiers\Modifiers;
-use phpDocumentor\Reflection\Types\String_;
-use App\Domain\HotelFeature\Feature;
+use App\Infrastructure\WordsRepository\IWordsRepository;
 
 class Word
 {
@@ -16,22 +13,23 @@ class Word
     /** @var bool $isHotelFeature */
     var $isHotelFeature;
 
-    /**
-     * @var string[]
-     */
-    var $modifiers =
-        [
-            "no",
-            "not"
-        ];
+    /** @var bool $isAdjective */
+    var $isAdjective;
+
+    /** @var bool $isModifier */
+    var $isModifier;
+
+    /** @var IWordsRepository $WordsRepository */
+    var $WordsRepository;
 
     /**
      * @param string $text
      */
-    public function __construct(string $text)
+    public function __construct(string $text, IWordsRepository $WordsRepository=null)
     {
+        $this->WordsRepository = $WordsRepository;
         $this->text = $text;
-        $this->isHotelFeature = $this->checkForHotelFeature($text);
+        $this->isHotelFeature = $this->checkForWords($text);
     }
 
 
@@ -69,6 +67,20 @@ class Word
         if (in_array($text, $modifier->modifierWords())) {
             return true;
         }
+        return false;
+    }
+
+    public function checkForWords(string $text): bool
+    {
+        if($this->checkForHotelFeature($text))
+        {
+            return true;
+        }elseif ($this->checkForAdjective($text)){
+            return true;
+        }elseif ($this->checkForModifier($text)){
+            return true;
+        }
+
         return false;
     }
 

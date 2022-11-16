@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\App\Domain\HotelFeature;
+namespace spec\App\Domain\ValueObjects;
 
-use App\Domain\HotelFeature\Feature;
+use App\Domain\ValueObjects\Feature;
 use PhpSpec\ObjectBehavior;
 
 class FeatureSpec extends ObjectBehavior
