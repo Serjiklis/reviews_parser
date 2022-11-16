@@ -29,7 +29,7 @@ class Word
     {
         $this->WordsRepository = $WordsRepository;
         $this->text = $text;
-        $this->isHotelFeature = $this->checkForHotelFeature($text);
+        $this->isHotelFeature = $this->checkForWords($text);
     }
 
 
@@ -67,6 +67,20 @@ class Word
         if (in_array($text, $modifier->modifierWords())) {
             return true;
         }
+        return false;
+    }
+
+    public function checkForWords(string $text): bool
+    {
+        if($this->checkForHotelFeature($text))
+        {
+            return true;
+        }elseif ($this->checkForAdjective($text)){
+            return true;
+        }elseif ($this->checkForModifier($text)){
+            return true;
+        }
+
         return false;
     }
 

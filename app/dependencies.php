@@ -29,6 +29,6 @@ return function (ContainerBuilder $containerBuilder) {
         },
         IReviewService::class => function (ContainerInterface $c) {
             return new ReviewService();
-        }git
+        }
     ]);
 };

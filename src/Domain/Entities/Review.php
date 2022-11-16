@@ -32,7 +32,7 @@ class Review
     public function parseWords(string $reviewText) : array
     {
         $WordArray = [];
-        foreach (explode(" ",$reviewText) as $text)
+        foreach (explode(" ", $reviewText) as $text)
         {
             $Word = new Word($text);
             $WordArray[] = $Word;
