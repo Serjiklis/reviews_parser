@@ -11,13 +11,13 @@ class Word
     var $text;
 
     /** @var bool $isHotelFeature */
-    var $isHotelFeature;
+    var $isHotelFeature=false;
 
     /** @var bool $isAdjective */
-    var $isAdjective;
+    var $isAdjective=false;
 
     /** @var bool $isModifier */
-    var $isModifier;
+    var $isModifier=false;
 
     /** @var int $type */
     var $type;
@@ -33,7 +33,20 @@ class Word
     public function __construct(string $text, int $type=self::UNKNOWN)
     {
         $this->text = self::simplify($text);
+        $this->setType($type);
+    }
+
+    private function setType(int $type) : void
+    {
         $this->type = $type;
+        if($type==self::FEATURE)
+            $this->isHotelFeature=true;
+
+        if($type==self::ADJECTIVE)
+            $this->isAdjective=true;
+
+        if($type==self::MODIFIER)
+            $this->isModifier=true;
     }
 
     /**

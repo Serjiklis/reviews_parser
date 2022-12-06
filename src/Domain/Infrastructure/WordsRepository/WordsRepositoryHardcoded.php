@@ -65,7 +65,8 @@ class WordsRepositoryHardcoded implements IWordsRepository
         return [
             "amazing",
             "poor",
-            "helpful"
+            "helpful",
+            "nice"
         ];
     }
 

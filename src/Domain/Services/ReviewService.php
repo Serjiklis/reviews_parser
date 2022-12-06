@@ -22,7 +22,7 @@ class ReviewService implements IReviewService
      */
     function parseReview(string $reviewText) : array
     {
-        $wordArray = $this->parseReview($reviewText);
+        $wordArray = $this->parseWords($reviewText);
         $Review = new Review($wordArray);
         return $Review->getReviewResults();
     }
