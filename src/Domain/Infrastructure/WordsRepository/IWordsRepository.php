@@ -7,12 +7,6 @@ use App\Domain\ValueObjects\Word;
 interface IWordsRepository
 {
     /**
-     * @param int $wordType
-     * @return array<Word>
-     */
-    public function getWordsByType(int $wordType) : array;
-
-    /**
      * @param string $text
      * @return ?Word
      */

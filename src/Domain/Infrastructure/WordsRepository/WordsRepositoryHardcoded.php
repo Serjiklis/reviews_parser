@@ -9,7 +9,26 @@ class WordsRepositoryHardcoded implements IWordsRepository
     /**
      * {@inheritdoc}
      */
-    public function getWordsByType(int $wordType) : array
+    public function lookupWord(string $text) : Word
+    {
+        foreach(Word::getTypes() as $wordType)
+        {
+            $wordsArray = $this->getWordsByType($wordType);
+            foreach($wordsArray as $Word)
+            {
+                if($Word->hasText($text))
+                    return $Word;
+            }
+        }
+
+        return new Word($text);
+    }
+    
+    /**
+     * @param int $wordType
+     * @return array<Word>
+     */
+    private function getWordsByType(int $wordType) : array
     {
         $wordsArray = [];
         if($wordType==Word::ADJECTIVE)
@@ -39,23 +58,7 @@ class WordsRepositoryHardcoded implements IWordsRepository
         return $wordsArray;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function lookupWord(string $text) : Word
-    {
-        foreach(Word::getTypes() as $wordType)
-        {
-            $wordsArray = $this->getWordsByType($wordType);
-            foreach($wordsArray as $Word)
-            {
-                if($Word->hasText($text))
-                    return $Word;
-            }
-        }
-
-        return new Word($text);
-    }
+    
 
     /**
      * @return string[]
@@ -66,7 +69,8 @@ class WordsRepositoryHardcoded implements IWordsRepository
             "amazing",
             "poor",
             "helpful",
-            "nice"
+            "nice",
+            "great"
         ];
     }
 
@@ -79,7 +83,8 @@ class WordsRepositoryHardcoded implements IWordsRepository
             "spa",
             "staff",
             "pet-friendly",
-            "fitness centre"
+            "fitness centre",
+            "games"
         ];
     }
 
