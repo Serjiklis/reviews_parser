@@ -2,8 +2,6 @@
 
 namespace App\Domain\Services;
 
-use App\Domain\Entities\Review;
-
 interface IReviewService
 {
     /**

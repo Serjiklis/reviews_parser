@@ -2,7 +2,7 @@
 
 namespace App\Domain\ValueObjects;
 
-use App\Infrastructure\WordsRepository\IWordsRepository;
+
 
 class Word
 {
@@ -19,70 +19,38 @@ class Word
     /** @var bool $isModifier */
     var $isModifier;
 
-    /** @var IWordsRepository $WordsRepository */
-    var $WordsRepository;
+    /** @var int $type */
+    var $type;
+
+    const UNKNOWN=0;
+    const FEATURE=1;
+    const ADJECTIVE=2;
+    const MODIFIER=3;
 
     /**
      * @param string $text
      */
-    public function __construct(string $text, IWordsRepository $WordsRepository=null)
+    public function __construct(string $text, int $type=self::UNKNOWN)
     {
-        $this->WordsRepository = $WordsRepository;
-        $this->text = $text;
-        $this->checkForWords($text);
+        $this->text = self::simplify($text);
+        $this->type = $type;
     }
 
-
-
-    function checkForHotelFeature(string $text) : bool
+    /**
+     * @return array<int>
+     */
+    static function getTypes() : array
     {
-        $text =  strtolower($text);
-
-        $feature = new Feature();
-
-        if (in_array($text, $feature->featureWords())) {
-            return true;
-        }
-        return false;
+        return [self::FEATURE,self::ADJECTIVE,self::MODIFIER];
     }
 
-    public function checkForAdjective(string $text): bool
+    function hasText(string $text) : bool
     {
-        $text =  strtolower($text);
-
-        $adjectives = new Adjectives();
-
-        if (in_array($text, $adjectives->adjectivesWords())) {
-            return true;
-        }
-        return false;
+        return self::simplify($text) == $this->text;
     }
 
-    public function checkForModifier(string $text): bool
+    function simplify(string $text) : string
     {
-        $text =  strtolower($text);
-
-        $modifier = new Modifiers();
-
-        if (in_array($text, $modifier->modifierWords())) {
-            return true;
-        }
-        return false;
+        return trim(strtolower($text));
     }
-
-    public function checkForWords(string $text): bool
-    {
-        if($this->checkForHotelFeature($text))
-        {
-            return $this->isHotelFeature = true;
-
-        }elseif ($this->checkForAdjective($text)){
-            return $this->isAdjective = true;
-        }elseif ($this->checkForModifier($text)){
-            return $this->isModifier = true;
-        }
-
-        return false;
-    }
-
 }

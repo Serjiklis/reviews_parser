@@ -1,14 +1,20 @@
 <?php
 
-namespace App\Infrastructure\WordsRepository;
+namespace App\Domain\Infrastructure\WordsRepository;
 
 use App\Domain\ValueObjects\Word;
 
 interface IWordsRepository
 {
     /**
-     * @param string $type
+     * @param int $wordType
      * @return array<Word>
      */
-    public function getWordsByType(string $type) : array;
+    public function getWordsByType(int $wordType) : array;
+
+    /**
+     * @param string $text
+     * @return ?Word
+     */
+    public function lookupWord(string $text) : ?Word;
 }

@@ -3,18 +3,22 @@
 namespace App\Domain\Entities;
 
 use App\Domain\ValueObjects\Word;
+use App\Domain\Infrastructure\WordsRepository\IWordsRepository;
 
 class Review
 {
+    /** @var IWordsRepository $WordsRepository */
+    var $WordsRepository;
+    
     /** @var array<Word> $wordArray All lower case text */
     var $wordArray;
 
     /**
-     * @param string $reviewText;
+     * @param array<Word> $wordArray
      */
-    public function __construct(string $reviewText)
+    public function __construct(array $wordArray)
     {
-        $this->wordArray = $this->parseWords($reviewText);
+        $this->wordArray = $wordArray;
     }
 
     /**
@@ -25,21 +29,6 @@ class Review
         return count($this->wordArray);
     }
 
-    /**
-     * @param string $reviewText
-     * @return array<Word>
-     */
-    public function parseWords(string $reviewText) : array
-    {
-        $WordArray = [];
-        foreach (explode(" ", $reviewText) as $text)
-        {
-            $Word = new Word($text);
-            $WordArray[] = $Word;
-        }
-
-        return $WordArray;
-    }
 
     /**
      * @return array<mixed>

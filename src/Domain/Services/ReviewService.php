@@ -3,9 +3,18 @@
 namespace App\Domain\Services;
 
 use App\Domain\Entities\Review;
+use App\Domain\ValueObjects\Word;
+use App\Domain\Infrastructure\WordsRepository\IWordsRepository;
 
 class ReviewService implements IReviewService
 {
+    /** @var IWordsRepository $WordsRepository */
+    var $WordsRepository;
+
+    function __construct(IWordsRepository $WordsRepository)
+    {
+        $this->WordsRepository = $WordsRepository;
+    }
 
     /**
      * @param string $reviewText
@@ -13,7 +22,24 @@ class ReviewService implements IReviewService
      */
     function parseReview(string $reviewText) : array
     {
-        $Review = new Review($reviewText);
+        $wordArray = $this->parseReview($reviewText);
+        $Review = new Review($wordArray);
         return $Review->getReviewResults();
+    }
+
+     /**
+     * @param string $reviewText
+     * @return array<Word>
+     */
+    public function parseWords(string $reviewText) : array
+    {
+        $WordArray = [];
+        foreach (explode(" ", $reviewText) as $text)
+        {
+            $Word = $this->WordsRepository->lookupWord($text);
+            $WordArray[] = $Word;
+        }
+
+        return $WordArray;
     }
 }

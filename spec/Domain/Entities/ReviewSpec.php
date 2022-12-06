@@ -3,13 +3,20 @@
 namespace spec\App\Domain\Entities;
 
 use App\Domain\Entities\Review;
+use App\Domain\ValueObjects\Word;
 use PhpSpec\ObjectBehavior;
 
 class ReviewSpec extends ObjectBehavior
 {
     function let()
     {
-        $this->beConstructedWith("Nice staff");
+        $this->beConstructedWith
+        (
+            [
+                new Word("nice",Word::ADJECTIVE),
+                new Word("staff",Word::FEATURE)
+            ]
+        );
     }
 
     function it_is_initializable()
@@ -19,31 +26,7 @@ class ReviewSpec extends ObjectBehavior
 
     function it_constructs_a_review_of_words()
     {
-        $reviewText = "Nice staff";
-
-        $this->beConstructedWith($reviewText);
-
-        $this->wordCount()->shouldReturn(2);
+       $this->wordCount()->shouldReturn(2);
     }
 
-    function it_parses_words_correctly()
-    {
-        $wordArray = $this->parseWords("Hello everyone here");
-        $wordArray[0]->text->shouldBe("Hello");
-    }
-
-    function is_hotel_features()
-    {
-
-    }
-
-    function is_adjectives()
-    {
-
-    }
-
-    function is_modifiers()
-    {
-
-    }
 }
